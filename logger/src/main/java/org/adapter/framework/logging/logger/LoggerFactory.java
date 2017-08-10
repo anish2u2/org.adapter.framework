@@ -50,6 +50,18 @@ public class LoggerFactory implements Logger, Serializable {
 		writer.write("ERROR[" + getDateNClassName() + "] " + message);
 	}
 
+	public void logException(Exception ex) {
+		StringBuffer buffer = new StringBuffer();
+		buffer.append("message:" + ex.getLocalizedMessage());
+		for (StackTraceElement stackTraceElement : ex.getStackTrace()) {
+			buffer.append("Line Number:" + stackTraceElement.getLineNumber());
+			buffer.append("Method Name:" + stackTraceElement.getMethodName());
+			buffer.append("Class Name:" + stackTraceElement.getClassName());
+			buffer.append("caller:" + stackTraceElement.getFileName());
+		}
+		error(buffer.toString());
+	}
+
 	private String getDateNClassName() {
 		return new Date() + " " + this.getClass().getName();
 	}

@@ -30,9 +30,14 @@ public class AdapterFramework extends AbstractAdapterFramework {
 	}
 
 	public static final void main(String args[]) {
-		framework.init();
-		framework.processApp();
-		framework.destroy();
+		logger.info("Starting Adapter Framework.");
+		try {
+			framework.init();
+			framework.processApp();
+			framework.destroy();
+		} catch (Exception ex) {
+			logger.logException(ex);
+		}
 	}
 
 	@Override

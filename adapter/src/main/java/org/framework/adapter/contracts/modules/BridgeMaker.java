@@ -5,7 +5,7 @@ import org.adapter.framework.bridge.contracts.Module;
 /**
  * This interface allow to make bridge between other modules.
  * 
- * @author User
+ * @author Anish Singh
  *
  */
 

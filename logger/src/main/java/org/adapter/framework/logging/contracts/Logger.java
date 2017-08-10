@@ -30,4 +30,11 @@ public interface Logger {
 	 */
 	public void error(String message);
 
+	/**
+	 * This will write exception as error param message to stream.
+	 * 
+	 * @param message
+	 */
+	public void logException(Exception ex);
+
 }
