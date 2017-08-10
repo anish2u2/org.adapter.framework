@@ -1,4 +1,4 @@
-package org.adapter.framework.core.contracts;
+package org.adapter.framework.core.contracts.factory;
 
 /**
  * 
