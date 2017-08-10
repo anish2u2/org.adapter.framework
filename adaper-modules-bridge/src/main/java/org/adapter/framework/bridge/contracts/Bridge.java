@@ -6,8 +6,8 @@ import org.adapter.framework.bridge.exception.BridgeConnectionException;
  * 
  * @author Anish Singh
  * 
- *         This Interface Allow to stablish a bridge between two modules.
- *
+ *         This Interface Allow to stablish a bridge between two modules. This
+ *         will let two modules communicate with each others.
  */
 public interface Bridge {
 
