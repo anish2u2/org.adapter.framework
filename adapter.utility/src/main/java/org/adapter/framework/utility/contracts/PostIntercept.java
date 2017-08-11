@@ -9,4 +9,10 @@ package org.adapter.framework.utility.contracts;
  */
 public interface PostIntercept extends Intercept {
 
+	/**
+	 * This method will allow you to intercept post method invocation.
+	 * 
+	 */
+	void postIntercept();
+
 }

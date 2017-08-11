@@ -28,16 +28,6 @@ public class ReflectionUtility implements Reflection {
 		return false;
 	}
 
-	public boolean isDeclearedMethodAnnotated(Method method, Class<?> annotationType) {
-
-		return false;
-	}
-
-	public boolean isDeclearedFieldAnnotated(Field field, Class<?> annotationType) {
-
-		return false;
-	}
-
 	public boolean isFieldAccessible(Field field) {
 
 		return false;
@@ -54,6 +44,16 @@ public class ReflectionUtility implements Reflection {
 
 	public void setMethodAccessible(Method method) {
 
+	}
+
+	public boolean isDeclaredMethodAnnotated(Method method, Class<?> annotationType) {
+
+		return false;
+	}
+
+	public boolean isDeclaredFieldAnnotated(Field field, Class<?> annotationType) {
+
+		return false;
 	}
 
 }

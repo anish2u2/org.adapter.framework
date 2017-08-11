@@ -4,12 +4,12 @@ import java.io.File;
 import java.util.List;
 
 /**
+ * This interface will allow to scan class path for classes and other documents.
+ *
  * 
  * @author Anish Singh
  * 
- *         This interface will allow to scan class path for classes and other
- *         documents.
- *
+ * 
  */
 public interface ClassPathScanner {
 

@@ -10,4 +10,8 @@ package org.adapter.framework.utility.contracts;
 
 public interface PreIntercept extends Intercept {
 
+	/**
+	 * This method will allow you to pre intercept method invocation.
+	 */
+	void preIntercept();
 }
