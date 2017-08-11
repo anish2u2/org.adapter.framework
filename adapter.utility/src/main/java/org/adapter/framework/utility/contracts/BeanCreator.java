@@ -15,7 +15,19 @@ import java.util.List;
 
 public interface BeanCreator {
 
+	/**
+	 * This method will create the bean of the corresponding class type.
+	 * 
+	 * @param classType
+	 * @return
+	 */
 	public Object createObject(Class<?> classType);
 
+	/**
+	 * This method will allow to set interceptors which can be used for
+	 * intercepting bean method invocations.
+	 * 
+	 * @param interceptors
+	 */
 	public void setInterceptors(List<Interceptor> interceptors);
 }
