@@ -6,11 +6,23 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>adapter utility</name>
 	<description>ADAPTER FRAMEWORK UTILITY</description>
+	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
 			<groupId>org</groupId>
 			<artifactId>adapter.bean</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org</groupId>
+			<artifactId>logger</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.xml/jaxb-api -->
+		<dependency>
+			<groupId>javax.xml</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.1</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/cglib/cglib -->
 		<dependency>

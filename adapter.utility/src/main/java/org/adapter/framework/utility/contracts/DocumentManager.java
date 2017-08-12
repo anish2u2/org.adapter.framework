@@ -11,7 +11,7 @@ import java.io.InputStream;
 public interface DocumentManager {
 
 	/**
-	 * This method lets you read the document to corresponding class type object
+	 * This method lets you read the XML to corresponding class type object
 	 * and returns Object. If there is any error while reading then it will
 	 * return null .
 	 * 
@@ -19,14 +19,16 @@ public interface DocumentManager {
 	 * @param parseToType
 	 * @return
 	 */
-	public Object readDoc(String fileName, Class<?> parseToType);
+	public Object readXML(String fileName, Class<?> parseToType);
 
 	/**
-	 * This method lets you write the doc toa file from the data source object.
+	 * This method lets you write the XML to a file from the data source object.
 	 * 
 	 * @param toFile
 	 * @param dataSource
 	 * @return
 	 */
-	public InputStream writeDoc(String toFile, Object dataSource);
+	public InputStream writeXML(String toFile, Object dataSource);
+	
+	
 }
