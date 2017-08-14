@@ -2,6 +2,7 @@ package org.adapter.framework.utility.contracts;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * 
@@ -65,4 +66,12 @@ public interface FileProcessing {
 	 */
 	File createDirectory(String location, String directoryName);
 
+	/**
+	 * This method will read the jar file and return the associated result after
+	 * processing FileFilter.
+	 * 
+	 * @param fileFilter
+	 * @return
+	 */
+	List<FileFilter> readJar(String jarPath, List<FileFilter> fileFilter);
 }

@@ -1,5 +1,7 @@
 package org.adapter.framework.utility.contracts;
 
+import java.util.List;
+
 /**
  * This interface allow you to register/remove File filters for processing the
  * files raeding technology.
@@ -22,4 +24,12 @@ public interface FilterRegistrar {
 	 * @param filter
 	 */
 	public void removeFilter(FileFilter filter);
+
+	/**
+	 * This method will return the registered FileFilters associated with this
+	 * register.
+	 * 
+	 * @return
+	 */
+	public List<FileFilter> getRegisteredFilters();
 }

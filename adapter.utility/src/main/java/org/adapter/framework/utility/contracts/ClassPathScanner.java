@@ -1,6 +1,5 @@
 package org.adapter.framework.utility.contracts;
 
-import java.io.File;
 import java.util.List;
 
 /**
@@ -46,7 +45,7 @@ public interface ClassPathScanner {
 	 * @param fileFilter
 	 * @return
 	 */
-	public boolean isFileExist(FileFilter fileFilter);
+	/*public boolean isFileExist(FileFilter fileFilter);*/
 
 	/**
 	 * Return the found file on basis of FilterFIle.If no files found then it
@@ -55,5 +54,5 @@ public interface ClassPathScanner {
 	 * @param fileFilter
 	 * @return
 	 */
-	public File getFile(FileFilter fileFilter);
+	/*public File getFile(FileFilter fileFilter);*/
 }
