@@ -17,7 +17,8 @@ public abstract class AbstractAdapterFramework implements Adapter {
 	protected static Logger logger = LoggerFactory.getLogger();
 
 	public void init() {
-		logger.info("Initializing Framework.");
+		logger.info("Initiating Module initialization.");
+		
 	}
 
 	public void destroy() {
