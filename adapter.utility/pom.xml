@@ -5,7 +5,7 @@
 	<artifactId>adapter.utility</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>adapter utility</name>
-	<description>ADAPTER FRAMEWORK UTILITY</description>
+	<description>ADAPTER FRAMEWORK UTILITY.This module represents the utility functions for adapter framework.</description>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>

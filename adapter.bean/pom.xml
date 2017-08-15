@@ -4,7 +4,7 @@
 	<groupId>org</groupId>
 	<artifactId>adapter.bean</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
+	<description>This module represents the management of bean.</description>
 	<dependencies>
 		<dependency>
 			<groupId>cglib</groupId>
