@@ -1,7 +1,7 @@
 package org.adapter.framework.bridge;
 
 import org.adapter.framework.bridge.contracts.Bridge;
-import org.adapter.framework.bridge.contracts.Module;
+import org.adapter.framework.bridge.contracts.CommunicationLink;
 import org.adapter.framework.bridge.exception.BridgeConnectionException;
 
 /**
@@ -19,14 +19,19 @@ public class ModuleBridge implements Bridge {
 		moduleBridge = new ModuleBridge();
 	}
 
+	private ModuleBridge() {
+		if (moduleBridge != null)
+			throw new RuntimeException("Object already created.");
+	}
+
 	public static Bridge getBridge() {
 		return moduleBridge;
 	}
 
-	public void makeBridge(final Module module1, final Module module2) throws BridgeConnectionException {
+	public CommunicationLink makeBridge(org.adapter.framework.bridge.contracts.CommunicationLink.Module module)
+			throws BridgeConnectionException {
 
-		module1.setCommunicateToModule(module2);
-		module2.setCommunicateToModule(module1);
+		return null;
 	}
 
 }

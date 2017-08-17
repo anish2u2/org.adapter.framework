@@ -6,21 +6,19 @@ import org.adapter.framework.bridge.exception.BridgeBrokenException;
  * 
  * @author Anish Singh
  * 
- *         This interface will help in identify as a unique module and also
- *         while help in communication. This interface has to be implemented by
- *         modules which are going to use bridge communication.
+ *         This interface will help in communication with other modules. This
+ *         interface has to be implemented by modules which are going to use
+ *         bridge communication.
  */
 public interface Module {
 
 	/**
-	 * This will talk to individual modules and if there is anything went wrong
-	 * or connection is broke the throw exception.
 	 * 
-	 * @param object
-	 * @return
+	 * This method will allow to get reference of the Bridge to establish a
+	 * communication link between two modules.
+	 * 
+	 * @param bridge
 	 */
-	Object talk(Object object) throws BridgeBrokenException;
-
-	void setCommunicateToModule(Module module);
+	public void setBridgeGate(Bridge bridge) throws BridgeBrokenException;
 
 }
