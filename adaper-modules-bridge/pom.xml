@@ -5,4 +5,12 @@
 	<artifactId>adaper-modules-bridge</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<description>This module will be used to stablish bridge communication between other modules. </description>
+
+	<dependencies>
+		<dependency>
+			<groupId>org</groupId>
+			<artifactId>logger</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>

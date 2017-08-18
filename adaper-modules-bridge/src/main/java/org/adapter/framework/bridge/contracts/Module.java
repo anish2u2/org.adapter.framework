@@ -21,4 +21,12 @@ public interface Module {
 	 */
 	public void setBridgeGate(Bridge bridge) throws BridgeBrokenException;
 
+	/**
+	 * This method will return BridgeCommunicatorListener for lestening the
+	 * communication.
+	 * 
+	 * @return
+	 */
+	BridgeCommunicationListener listen();
+
 }

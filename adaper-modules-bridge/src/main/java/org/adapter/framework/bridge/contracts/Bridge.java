@@ -1,6 +1,6 @@
 package org.adapter.framework.bridge.contracts;
 
-import org.adapter.framework.bridge.contracts.CommunicationLink.Module;
+import org.adapter.framework.bridge.contracts.BridgeCommunicatorModuleRegistrar.ModuleType;
 import org.adapter.framework.bridge.exception.BridgeConnectionException;
 
 /**
@@ -20,6 +20,6 @@ public interface Bridge {
 	 * @return
 	 * @throws BridgeConnectionException
 	 */
-	public CommunicationLink makeBridge(Module module) throws BridgeConnectionException;
+	public CommunicationLink makeBridge(ModuleType module) throws BridgeConnectionException;
 
 }

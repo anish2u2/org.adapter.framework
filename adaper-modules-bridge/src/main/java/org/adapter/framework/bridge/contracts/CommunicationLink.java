@@ -10,14 +10,12 @@ package org.adapter.framework.bridge.contracts;
 public interface CommunicationLink {
 
 	/**
-	 * This will represents the modules in
+	 * This method will represents the communication with the module connected
+	 * through the bridge communication link.
 	 * 
-	 * @author Anish Singh
-	 *
+	 * @param data
+	 * @return
 	 */
-	enum Module {
-		UTILITY, BEANS, CONTEXT, WORKER, CORE
-	}
 
 	Object communicate(Object data);
 }
