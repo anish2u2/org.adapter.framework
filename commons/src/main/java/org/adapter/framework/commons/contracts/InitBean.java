@@ -8,7 +8,10 @@ package org.adapter.framework.commons.contracts;
  *
  */
 public interface InitBean {
-
+	
+	/**
+	 * This method will be used to initialize the beans after the creation of the object.
+	 */
 	void init();
 
 }

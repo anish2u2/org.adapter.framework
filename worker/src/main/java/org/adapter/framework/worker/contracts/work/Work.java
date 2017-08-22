@@ -12,5 +12,5 @@ public interface Work {
 	 * This method will be implemented to run the code on a separate worker.
 	 */
 	void executeTask();
-
+	
 }

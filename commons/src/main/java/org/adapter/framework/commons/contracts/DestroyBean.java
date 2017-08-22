@@ -8,7 +8,10 @@ package org.adapter.framework.commons.contracts;
  *
  */
 public interface DestroyBean {
-
+	/**
+	 * This method will be used to release the resources hold by the bean before
+	 * allowing the object to be garbage collected.
+	 */
 	void destroy();
 
 }
