@@ -1,4 +1,4 @@
-package org.adapter.framework.worker;
+package org.adapter.framework.worker.colony;
 
 import org.adapter.framework.logging.contracts.Logger;
 import org.adapter.framework.logging.logger.LoggerFactory;
@@ -13,9 +13,9 @@ public class WorkerImpl extends Thread implements Worker {
 
 	private boolean backGroundWorker = false;
 
-	private boolean retierd = false;
+	// private boolean retierd = false;
 
-	private boolean available = false;
+	private boolean available = true;
 
 	private boolean workerStarted = false;
 
@@ -33,6 +33,7 @@ public class WorkerImpl extends Thread implements Worker {
 		logger.info("Assigning work to a worker.");
 		this.work = work;
 		if (!workerStarted && !workerShutDown) {
+			init();
 			start();
 		}
 	}
@@ -65,7 +66,7 @@ public class WorkerImpl extends Thread implements Worker {
 
 	public boolean isRetierd() {
 
-		return retierd;
+		return workerShutDown;
 	}
 
 	public void setAsBackGroundWorker(boolean backGroundWorker) {

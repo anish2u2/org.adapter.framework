@@ -25,6 +25,7 @@ public abstract class Manager implements WorkManager {
 	}
 
 	public void allocateWorker(Work work) {
+
 		findAvailableWorker(false).doWork(work);
 	}
 

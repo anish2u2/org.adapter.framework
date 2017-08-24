@@ -25,5 +25,6 @@ public interface AnnotationHandler {
 	 * @param clazz
 	 */
 	public Object doHandle(Class<?> clazz);
-
+	
+	
 }

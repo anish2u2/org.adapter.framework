@@ -10,6 +10,7 @@
 			<groupId>org</groupId>
 			<artifactId>commons</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+			<classifier>jar-with-dependencies</classifier>
 		</dependency>
 		<dependency>
 			<groupId>org</groupId>

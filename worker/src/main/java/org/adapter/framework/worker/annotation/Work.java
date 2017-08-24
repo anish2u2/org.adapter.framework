@@ -22,9 +22,20 @@ public @interface Work {
 	 * @author Anish Singh
 	 *
 	 */
-	enum Type {
+	public enum Type {
 		SYNCHRONIZED, UNSYNCHRONIZED
 	};
+
+	/**
+	 * This will represent the work type i.e the work has to be processed as a
+	 * background work like daemon or normal.
+	 * 
+	 * @author Anish Singh
+	 *
+	 */
+	public enum WorkType {
+		DAEMON, NORMAL
+	}
 
 	/**
 	 * This will specify the name of the work.by default it will be Work.
@@ -40,4 +51,12 @@ public @interface Work {
 	 * @return
 	 */
 	Type type() default Type.UNSYNCHRONIZED;
+
+	/**
+	 * This will return the value of work processing type. By default it will be
+	 * NORMAL.
+	 * 
+	 * @return
+	 */
+	WorkType workType() default WorkType.NORMAL;
 }

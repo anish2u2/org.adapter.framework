@@ -9,6 +9,7 @@ import org.adapter.framework.logging.logger.LoggerFactory;
 import org.adapter.framework.worker.annotation.Work;
 import org.adapter.framework.worker.annotation.Worker;
 import org.adapter.framework.worker.handler.WorkerAnnotationHandler;
+import org.adapter.framework.worker.interceptor.WorkerInterceptor;
 import org.adapter.framework.worker.listener.ContextInitListener;
 import org.adapter.framework.worker.module.WorkerContext;
 
@@ -24,6 +25,7 @@ public class InitWorkerModule implements Module {
 		((WorkerContext) moduleContext).init();
 		registerHandler(moduleContext);
 		registerListeners(moduleContext);
+		initInterceptors();
 	}
 
 	public void destroyModule() {
@@ -52,5 +54,11 @@ public class InitWorkerModule implements Module {
 		handler.registerAnnotation(Worker.class);
 		handler.registerAnnotation(Work.class);
 		logger.info("Annotation handler registered all the annotation specific to this module.");
+	}
+
+	private void initInterceptors() {
+		logger.info("Initializing Interceptor of Worker Module.");
+		WorkerInterceptor workerInterceptor = new WorkerInterceptor();
+		workerInterceptor.init();
 	}
 }

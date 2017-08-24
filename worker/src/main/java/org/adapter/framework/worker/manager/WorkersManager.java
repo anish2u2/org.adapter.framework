@@ -31,7 +31,7 @@ public class WorkersManager extends Manager {
 	@Override
 	public void init() {
 		super.init();
-		workerfactory = new org.adapter.framework.worker.factory.WorkerFactory();
+		workerfactory = org.adapter.framework.worker.factory.WorkerFactory.getInstance();
 	}
 
 	@Override

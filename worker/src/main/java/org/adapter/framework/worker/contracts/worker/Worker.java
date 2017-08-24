@@ -30,7 +30,7 @@ public interface Worker extends InitBean, DestroyBean {
 	/**
 	 * returns true if the worker is free/available for work.
 	 * 
-	 * @return
+	 * @return true by default if the worker is not working.
 	 */
 	public boolean isAvailable();
 
