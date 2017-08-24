@@ -10,7 +10,7 @@ import java.util.List;
  * @author Anish Singh
  *
  */
-public interface FileFilter extends FilenameFilter {
+public interface FileFilter {
 	/**
 	 * This method will allow you to filter the filename.
 	 * 

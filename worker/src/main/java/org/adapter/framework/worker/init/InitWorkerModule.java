@@ -61,4 +61,10 @@ public class InitWorkerModule implements Module {
 		WorkerInterceptor workerInterceptor = new WorkerInterceptor();
 		workerInterceptor.init();
 	}
+
+	@Override
+	protected void finalize() throws Throwable {
+		destroyModule();
+		super.finalize();
+	}
 }

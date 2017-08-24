@@ -11,6 +11,10 @@ public class ContextInitListener
 
 	private ModuleContext moduleContext;
 
+	{
+		init();
+	}
+
 	public void listen(Event event) {
 
 	}
@@ -29,7 +33,7 @@ public class ContextInitListener
 
 	@Override
 	protected void finalize() throws Throwable {
-		moduleContext = null;
+		destroy();
 		super.finalize();
 	}
 
@@ -41,4 +45,5 @@ public class ContextInitListener
 	public void init() {
 
 	}
+
 }

@@ -11,6 +11,10 @@ public class WorkersManager extends Manager {
 
 	private static WorkersManager manager;
 
+	{
+		init();
+	}
+
 	private WorkersManager() {
 		if (manager != null)
 			throw new RuntimeException("Object Already Created.");
@@ -43,5 +47,11 @@ public class WorkersManager extends Manager {
 	public void destroy() {
 		workerfactory = null;
 		super.destroy();
+	}
+
+	@Override
+	protected void finalize() throws Throwable {
+		destroy();
+		super.finalize();
 	}
 }

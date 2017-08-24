@@ -40,7 +40,7 @@ public class PathScanner implements ClassPathScanner {
 	 */
 	@Override
 	public List<Class<?>> scan() {
-		FileManager fileManager = new FileManager();
+		FileManager fileManager = (FileManager) FileManager.getInstance();
 
 		for (FilterRegistrar filterRegistrar : listOfFilterRegistrar) {
 			listOfFileFilters.addAll(filterRegistrar.getRegisteredFilters());
@@ -62,17 +62,17 @@ public class PathScanner implements ClassPathScanner {
 		return null;
 	}
 
-	/*@Override
-	public boolean isFileExist(FileFilter fileFilter) {
-		if(listOfFileFilters.contains(fileFilter) && listOfFileFilters.)
-		return false;
-	}*/
+	/*
+	 * @Override public boolean isFileExist(FileFilter fileFilter) {
+	 * if(listOfFileFilters.contains(fileFilter) && listOfFileFilters.) return
+	 * false; }
+	 */
 
-	/*@Override
-	public File getFile(FileFilter fileFilter) {
-
-		return null;
-	}*/
+	/*
+	 * @Override public File getFile(FileFilter fileFilter) {
+	 * 
+	 * return null; }
+	 */
 
 	private URL getAppPath() {
 		return this.getClass().getProtectionDomain().getCodeSource().getLocation();

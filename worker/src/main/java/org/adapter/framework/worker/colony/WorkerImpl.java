@@ -85,4 +85,9 @@ public class WorkerImpl extends Thread implements Worker {
 		return super.isDaemon();
 	}
 
+	@Override
+	protected void finalize() throws Throwable {
+		// destroy();
+		super.finalize();
+	}
 }

@@ -19,6 +19,26 @@ import org.adapter.framework.utility.contracts.FileProcessing;
 public class FileManager implements FileProcessing {
 	Logger logger = LoggerFactory.getLogger();
 
+	private static FileManager fileManager = null;
+
+	private FileManager() {
+		if (fileManager != null) {
+			throw new RuntimeException("Object Already Created.");
+		}
+	}
+
+	/**
+	 * This method will return the object of FileProcessing.
+	 * 
+	 * @return
+	 */
+	public static FileProcessing getInstance() {
+		if (fileManager == null) {
+			fileManager = new FileManager();
+		}
+		return fileManager;
+	}
+
 	public File createNewFile(String fullyQualifiedfileName) {
 
 		return new File(fullyQualifiedfileName);
@@ -88,4 +108,9 @@ public class FileManager implements FileProcessing {
 		}
 	}
 
+	@Override
+	protected void finalize() throws Throwable {
+		fileManager = null;
+		super.finalize();
+	}
 }

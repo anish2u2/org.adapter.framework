@@ -15,7 +15,7 @@ public class WorkerAnnotationHandler implements AnnotationHandler, InitBean, Des
 	private List<Class<?>> registeredAnnotation;
 
 	{
-		registeredAnnotation = new LinkedList<Class<?>>();
+		init();
 	}
 
 	public List<Class<?>> getAnnotations() {
@@ -56,7 +56,12 @@ public class WorkerAnnotationHandler implements AnnotationHandler, InitBean, Des
 	}
 
 	public void init() {
-
+		registeredAnnotation = new LinkedList<Class<?>>();
 	}
 
+	@Override
+	protected void finalize() throws Throwable {
+		destroy();
+		super.finalize();
+	}
 }

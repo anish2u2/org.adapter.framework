@@ -26,7 +26,7 @@ public class AnnotationIntercepterRegistrarFactory implements InterceptorsRegist
 	private Set<Interceptor> interceptors = null;
 
 	{
-		interceptors = new HashSet<Interceptor>();
+		init();
 	}
 
 	private AnnotationIntercepterRegistrarFactory() {
@@ -40,8 +40,9 @@ public class AnnotationIntercepterRegistrarFactory implements InterceptorsRegist
 	 * @return
 	 */
 	public static InterceptorsRegistrar getInstance() {
-		if (annotationIntercepterRegistrarFactory == null)
+		if (annotationIntercepterRegistrarFactory == null) {
 			annotationIntercepterRegistrarFactory = new AnnotationIntercepterRegistrarFactory();
+		}
 		return annotationIntercepterRegistrarFactory;
 	}
 
@@ -62,7 +63,7 @@ public class AnnotationIntercepterRegistrarFactory implements InterceptorsRegist
 	}
 
 	public void init() {
-		
+		interceptors = new HashSet<Interceptor>();
 	}
 
 }

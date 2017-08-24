@@ -104,4 +104,9 @@ public class WorkerInterceptor implements Interceptor, InitBean, DestroyBean {
 		};
 	}
 
+	@Override
+	protected void finalize() throws Throwable {
+		destroy();
+		super.finalize();
+	}
 }

@@ -14,6 +14,10 @@ public class WorkerFactory
 
 	private static org.adapter.framework.worker.contracts.worker.WorkerFactory workerFactory = null;
 
+	{
+		init();
+	}
+
 	private WorkerFactory() {
 		logger.info("Creating Object " + this.getClass().getName());
 		if (workerFactory != null)
@@ -48,4 +52,9 @@ public class WorkerFactory
 
 	}
 
+	@Override
+	protected void finalize() throws Throwable {
+		destroy();
+		super.finalize();
+	}
 }
