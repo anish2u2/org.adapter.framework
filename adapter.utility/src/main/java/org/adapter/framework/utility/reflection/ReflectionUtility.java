@@ -21,6 +21,26 @@ import org.adapter.framework.utility.contracts.Reflection;
 @Component(name = "reflectionUtil", scope = Scope.SINGLETONE)
 public class ReflectionUtility implements Reflection {
 
+	private static Reflection reflection;
+
+	private ReflectionUtility() {
+		if (reflection != null) {
+			throw new RuntimeException("Object Already Created.");
+		}
+	}
+
+	/**
+	 * This method will return instance of the Reflection.
+	 * 
+	 * @return
+	 */
+	public static Reflection getInstance() {
+		if (reflection == null) {
+			reflection = new ReflectionUtility();
+		}
+		return reflection;
+	}
+
 	public Object instanciateOject(Class<?> clazz) {
 		try {
 			Constructor<?> constructor = getConstrcutor(clazz);

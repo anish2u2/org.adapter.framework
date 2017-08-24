@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Name of the module -->
-<module name="ADAPTER-CONTEXT">
+<module name="ADAPTER-CORE">
 	<!-- base lookup package where the framework is going to readall classes 
 		of this framework. -->
-	<base-package name="org.adapter.framework.context"
-		init-class="org.adapter.framework.context.init.InitContextModule" />
+	<base-package name="org.adapter.framework.core"
+		init-class="" />
 </module>

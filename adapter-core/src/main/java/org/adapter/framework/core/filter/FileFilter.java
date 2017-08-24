@@ -60,5 +60,5 @@ public class FileFilter implements org.adapter.framework.utility.contracts.FileF
 	public void init() {
 		listOfreadedFiles = new LinkedList<String>();
 	}
-
+	
 }

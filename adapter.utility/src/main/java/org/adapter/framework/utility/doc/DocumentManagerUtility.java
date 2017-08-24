@@ -19,6 +19,25 @@ public class DocumentManagerUtility implements DocumentManager {
 
 	private Logger logger = LoggerFactory.getLogger();
 
+	private static DocumentManager documentManager = null;
+
+	private DocumentManagerUtility() {
+		if (documentManager != null)
+			throw new RuntimeException("Object Already Created.");
+	}
+
+	/**
+	 * This method will return the object of DocumentManager.
+	 * 
+	 * @return
+	 */
+	public static DocumentManager getInstance() {
+		if (documentManager == null) {
+			documentManager = new DocumentManagerUtility();
+		}
+		return documentManager;
+	}
+
 	public Object readXML(String fileName, Class<?> parseToType) {
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(parseToType);

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Name of the module -->
 <module name="ADAPTER-WORKER">
-    <!-- base lookup package where the framework is going to readall classes of this framework. -->
-	<base-package name="org.adapter.framework.worker" />
+	<!-- base lookup package where the framework is going to readall classes 
+		of this framework. -->
+	<base-package name="org.adapter.framework.worker"
+		init-class="org.adapter.framework.worker.init.InitWorkerModule" />
 </module>
