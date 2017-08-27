@@ -32,6 +32,7 @@ public class AdapterFramework extends AbstractAdapterFramework {
 	public static final void main(String args[]) {
 		logger.info("Starting Adapter Framework.");
 		try {
+			System.out.println("Starting framework....");
 			framework.init();
 			framework.processApp();
 			framework.destroy();

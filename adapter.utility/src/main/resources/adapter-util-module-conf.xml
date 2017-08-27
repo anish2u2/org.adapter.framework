@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Name of the module -->
-<!-- <module name="ADAPTER-UTIL"> -->
-    <!-- base lookup package where the framework is going to readall classes of this framework. -->
-<!-- 	<base-package name="org.adapter.framework.utility" init-class=""/> -->
-<!-- </module> -->

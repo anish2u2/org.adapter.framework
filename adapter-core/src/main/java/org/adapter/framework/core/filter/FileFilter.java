@@ -15,12 +15,12 @@ public class FileFilter implements org.adapter.framework.utility.contracts.FileF
 	private List<String> listOfreadedFiles;
 
 	public void filter(String fileName) {
-		String actualFileName = fileName.substring(fileName.indexOf('.'));
-		if (prefix != null && actualFileName.startsWith(prefix) && suffix != null && actualFileName.endsWith(suffix)) {
+
+		if (prefix != null && fileName.startsWith(prefix) && suffix != null && fileName.endsWith(suffix)) {
 			listOfreadedFiles.add(fileName);
-		} else if (prefix != null && actualFileName.startsWith(prefix)) {
+		} else if (prefix != null && fileName.startsWith(prefix)) {
 			listOfreadedFiles.add(fileName);
-		} else if (suffix != null && actualFileName.endsWith(suffix)) {
+		} else if (suffix != null && fileName.endsWith(suffix)) {
 			listOfreadedFiles.add(fileName);
 		}
 	}
@@ -31,7 +31,7 @@ public class FileFilter implements org.adapter.framework.utility.contracts.FileF
 
 	public List<String> filteredFileNames() {
 
-		return null;
+		return listOfreadedFiles;
 	}
 
 	public String getPrefix() {
@@ -60,5 +60,5 @@ public class FileFilter implements org.adapter.framework.utility.contracts.FileF
 	public void init() {
 		listOfreadedFiles = new LinkedList<String>();
 	}
-	
+
 }

@@ -11,6 +11,7 @@ import org.adapter.framework.worker.annotation.Worker;
 import org.adapter.framework.worker.handler.WorkerAnnotationHandler;
 import org.adapter.framework.worker.interceptor.WorkerInterceptor;
 import org.adapter.framework.worker.listener.ContextInitListener;
+import org.adapter.framework.worker.manager.WorkersManager;
 import org.adapter.framework.worker.module.WorkerContext;
 
 public class InitWorkerModule implements Module {
@@ -21,6 +22,7 @@ public class InitWorkerModule implements Module {
 
 	public void initModule() {
 		logger.info("Initializing Worker Module.");
+		startMemoryStatusInformerWorker();
 		moduleContext = new WorkerContext();
 		((WorkerContext) moduleContext).init();
 		registerHandler(moduleContext);
@@ -67,4 +69,26 @@ public class InitWorkerModule implements Module {
 		destroyModule();
 		super.finalize();
 	}
+
+	private void startMemoryStatusInformerWorker() {
+		WorkersManager.getInstance().allocateDeamonWorker(new org.adapter.framework.worker.contracts.work.Work() {
+
+			public void executeTask() {
+				Runtime runtime = Runtime.getRuntime();
+				Long totlaMemory = runtime.totalMemory();
+				while (true) {
+					Long freeMemory = runtime.freeMemory();
+					logger.info("Total Memo:" + totlaMemory + " Free Memo:" + freeMemory + " used by App:"
+							+ (totlaMemory - freeMemory));
+					try {
+						Thread.sleep(1000);
+					} catch (Exception ex) {
+						logger.logException(ex);
+					}
+				}
+
+			}
+		});
+	}
+
 }

@@ -42,7 +42,10 @@ public class DocumentManagerUtility implements DocumentManager {
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(parseToType);
 			Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-			return unmarshaller.unmarshal(new File(fileName));
+			InputStream stream = getResourceAsStream(fileName);
+			Object result = unmarshaller.unmarshal(stream);
+			stream.close();
+			return result;
 		} catch (Exception ex) {
 			logger.logException(ex);
 		}
@@ -58,6 +61,10 @@ public class DocumentManagerUtility implements DocumentManager {
 			logger.logException(ex);
 		}
 		return null;
+	}
+
+	private InputStream getResourceAsStream(String FileName) {
+		return Thread.currentThread().getContextClassLoader().getResourceAsStream(FileName);
 	}
 
 }

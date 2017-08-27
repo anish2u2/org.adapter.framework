@@ -87,14 +87,14 @@ public class FileManager implements FileProcessing {
 
 	@Override
 	public List<FileFilter> readJar(String jarPath, List<FileFilter> fileFilter) {
-		jarPath = jarPath.replace("/", File.separator);
+		// jarPath = jarPath.replace("/", File.separator);
 		logger.info("Reading jar file :" + jarPath);
 		try (JarInputStream jarInputStream = new JarInputStream(new FileInputStream(new File(jarPath)));) {
-			JarEntry jarEntry = null;
-			while (true) {
-				jarEntry = jarInputStream.getNextJarEntry();
+			JarEntry jarEntry = jarInputStream.getNextJarEntry();
+			while (jarEntry != null) {
 				if (!jarEntry.isDirectory())
-					processFileFilter(jarEntry.getName().replace("/", "."), fileFilter);
+					processFileFilter(jarEntry.getName().replace("/", File.separator), fileFilter);
+				jarEntry = jarInputStream.getNextJarEntry();
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();

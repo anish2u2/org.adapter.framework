@@ -61,7 +61,7 @@ public class FilterRegistrar implements org.adapter.framework.utility.contracts.
 		clazzFilter.init();
 		fileFilters.add(clazzFilter);
 		org.adapter.framework.core.filter.FileFilter moduleConfigFilter = new org.adapter.framework.core.filter.FileFilter();
-		moduleConfigFilter.setSuffix("module-conf.xml");
+		moduleConfigFilter.setSuffix("-module-conf.xml");
 		moduleConfigFilter.init();
 		fileFilters.add(moduleConfigFilter);
 	}

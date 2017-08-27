@@ -1,6 +1,8 @@
 package org.adapter.framework.core.loaders;
 
 import java.net.URL;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.adapter.framework.commons.contracts.DestroyBean;
 import org.adapter.framework.commons.contracts.InitBean;
@@ -22,6 +24,8 @@ public class ModulesLoader implements ModuleLoader, InitBean, DestroyBean {
 
 	private Logger logger = LoggerFactory.getLogger();
 
+	private Set<Module> modules = null;
+
 	private static ModuleLoader loader = null;
 
 	private FileProcessing fileManager;
@@ -32,11 +36,19 @@ public class ModulesLoader implements ModuleLoader, InitBean, DestroyBean {
 
 	private Reflection reflection;
 
+	private String jarLocation = getJarLocation().toString().substring("file:".length() + 1,
+			getJarLocation().toString().length());
+
 	private ModulesLoader() {
 		logger.info("Reading Configuration and Classes.");
 		logger.info("Starting Reading location:" + getJarLocation().toString());
-		fileManager.readJar(getJarLocation().toString(), registrar.getRegisteredFilters());
+		String location = getJarLocation().toString().startsWith("file:") ? jarLocation : getJarLocation().toString();
+		fileManager.readJar(location, registrar.getRegisteredFilters());
 
+	}
+
+	{
+		init();
 	}
 
 	/**
@@ -59,8 +71,10 @@ public class ModulesLoader implements ModuleLoader, InitBean, DestroyBean {
 					ModuleConfig moduleConfig = (ModuleConfig) documentManager.readXML(fileName, ModuleConfig.class);
 					try {
 						logger.info("initializing module:" + moduleConfig.getName());
-						reflection
+						Module module = (Module) reflection
 								.instanciateOject(Class.forName(moduleConfig.getModuleInitInfo().getInitModuleClass()));
+						module.initModule();
+						modules.add(module);
 					} catch (ClassNotFoundException e) {
 						e.printStackTrace();
 					}
@@ -71,7 +85,9 @@ public class ModulesLoader implements ModuleLoader, InitBean, DestroyBean {
 	}
 
 	public void unloadModules() {
-
+		for (Module module : modules) {
+			module.destroyModule();
+		}
 	}
 
 	public void destroy() {
@@ -79,6 +95,8 @@ public class ModulesLoader implements ModuleLoader, InitBean, DestroyBean {
 		fileManager = null;
 		registrar = null;
 		reflection = null;
+		modules.clear();
+		modules = null;
 	}
 
 	public void init() {
@@ -86,6 +104,7 @@ public class ModulesLoader implements ModuleLoader, InitBean, DestroyBean {
 		registrar = org.adapter.framework.core.registrar.FilterRegistrar.getInstance();
 		documentManager = DocumentManagerUtility.getInstance();
 		reflection = ReflectionUtility.getInstance();
+		modules = new HashSet<Module>();
 	}
 
 	@Override
