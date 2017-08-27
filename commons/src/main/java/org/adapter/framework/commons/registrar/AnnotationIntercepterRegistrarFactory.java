@@ -35,7 +35,7 @@ public class AnnotationIntercepterRegistrarFactory implements InterceptorsRegist
 	}
 
 	/**
-	 * This method return the instace of {@link InterceptorsRegistrar#}
+	 * This method return the instance of {@link InterceptorsRegistrar#}
 	 * 
 	 * @return
 	 */

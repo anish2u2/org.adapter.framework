@@ -5,10 +5,11 @@ import java.lang.reflect.Method;
 import net.sf.cglib.proxy.MethodInterceptor;
 
 /**
+ * This Interface will be used for handling method intercept.
  * 
  * @author Anish Singh
  * 
- *         This Interface will be used for handling method intercept.
+ * 
  *
  */
 public interface Interceptor extends MethodInterceptor {
@@ -16,22 +17,23 @@ public interface Interceptor extends MethodInterceptor {
 	/**
 	 * Check that the method parameter is interceptable by this interceptor.
 	 * 
-	 * @param method
+	 * @param targetObject
+	 *            (Field,Type,Method, etc.)
 	 * @return
 	 */
-	public boolean isInterceptable(Method method);
+	public boolean isInterceptable(Object targetobject);
 
 	/**
 	 * 
 	 * @param preIntercept
 	 *            will pre intercept the method invocation.
 	 */
-	public void setMethodPreInterceptor(PreIntercept preIntercept);
+	public void addMethodPreInterceptor(PreIntercept preIntercept);
 
 	/**
 	 * 
 	 * @param postIntercept
 	 *            will post intercept Method invocation.
 	 */
-	public void setMethodPostInterceptor(PostIntercept postIntercept);
+	public void addMethodPostInterceptor(PostIntercept postIntercept);
 }

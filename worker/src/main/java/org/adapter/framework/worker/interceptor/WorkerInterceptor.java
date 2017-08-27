@@ -40,30 +40,33 @@ public class WorkerInterceptor implements Interceptor, InitBean, DestroyBean {
 		Work work = method.getAnnotation(Work.class);
 		boolean isNormalWork = WorkType.NORMAL.equals(work.workType());
 		boolean isSynchronized = Type.SYNCHRONIZED.equals(work.type());
-		if (preIntercept != null) {
-			preIntercept.preIntercept();
+		if (preIntercept != null && preIntercept.getClass().isAssignableFrom(PreIntercept.class)
+				&& preIntercept.isInterceptable(method)) {
+			preIntercept.intercept();
 		}
 		if (isNormalWork) {
 			manager.allocateWorker(getWork(isSynchronized, obj, args, proxy));
 		} else {
 			manager.allocateDeamonWorker(getWork(isSynchronized, obj, args, proxy));
 		}
-		if (postIntercept != null) {
-			postIntercept.postIntercept();
+		if (postIntercept != null && postIntercept.getClass().isAssignableFrom(PostIntercept.class)
+				&& postIntercept.isInterceptable(method)) {
+			postIntercept.intercept();
 		}
 		return null;
 	}
 
-	public boolean isInterceptable(Method method) {
-
-		return method.isAnnotationPresent(Work.class);
+	public boolean isInterceptable(Object targetObject) {
+		if (Method.class.isAssignableFrom(targetObject.getClass()))
+			return ((Method) targetObject).isAnnotationPresent(Work.class);
+		return false;
 	}
 
-	public void setMethodPreInterceptor(PreIntercept preIntercept) {
+	public void addMethodPreInterceptor(PreIntercept preIntercept) {
 		this.preIntercept = preIntercept;
 	}
 
-	public void setMethodPostInterceptor(PostIntercept postIntercept) {
+	public void addMethodPostInterceptor(PostIntercept postIntercept) {
 		this.postIntercept = postIntercept;
 	}
 
@@ -74,7 +77,7 @@ public class WorkerInterceptor implements Interceptor, InitBean, DestroyBean {
 	}
 
 	/**
-	 * This method will return the Annonymous class of Work interface
+	 * This method will return the Anonymous class of Work interface
 	 * implementation.
 	 * 
 	 * @param isSynchronized

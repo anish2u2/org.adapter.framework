@@ -6,10 +6,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * This annotation will be used to intercept method invocation.
  * 
  * @author Anish Singh
  * 
- *         This annotation will be used to method for interception.
+ * 
  *
  */
 
@@ -17,7 +18,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Interceptor {
 
-	public enum Intercept {
+	public enum InterceptType {
 		PRE, POST
 	}
 
@@ -26,5 +27,19 @@ public @interface Interceptor {
 	 * 
 	 * @return
 	 */
-	Intercept[] interceptor();
+	InterceptType interceptorType();
+
+	/**
+	 * This will provide the type of the target class.
+	 * 
+	 * @return
+	 */
+	String targetClass();
+
+	/**
+	 * This will provide the name of the method on the target class instance.
+	 * 
+	 * @return
+	 */
+	String targetMethod();
 }

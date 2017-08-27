@@ -6,10 +6,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * This will be used to start the execution of app.
  * 
  * @author Anish Singh
  *
- *         This will be used to start the execution of app.
+ * 
  */
 @Target(value = ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

@@ -7,10 +7,12 @@ import java.lang.annotation.Target;
 
 /**
  * 
+ * This will be used for initiating the COnfiguration of the framework by sub
+ * modules.
+ * 
  * @author Anish Singh
  *
- *         This will be used for initiating the COnfiguration of the framework
- *         by sub modules.
+ * 
  *
  */
 

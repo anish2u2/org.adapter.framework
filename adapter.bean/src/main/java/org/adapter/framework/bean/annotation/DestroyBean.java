@@ -6,10 +6,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * This Annotation will be used to invoke method while destroying the object.
+ * 
  * @author Anish Singh
  * 
- *         This Annotation will be used to invoke method while destroying the
- *         object.
+ * 
  */
 
 @Target(value = ElementType.METHOD)

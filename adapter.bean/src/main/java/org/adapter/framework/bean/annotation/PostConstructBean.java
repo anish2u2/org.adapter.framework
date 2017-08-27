@@ -6,10 +6,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * This Annotation will be used to invoke method after the creation of the
+ * object.
+ * 
  * @author Anish Singh
  * 
- *         This Annotation will be used to invoke method after the
- *         initialization of the object.
+ * 
  */
 
 @Target(value = ElementType.METHOD)

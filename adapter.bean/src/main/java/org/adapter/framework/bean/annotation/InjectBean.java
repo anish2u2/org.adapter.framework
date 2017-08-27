@@ -5,10 +5,12 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/*
+/**
+ * This Annotation will be used for injecting bean.
+ * 
  * @author Anish Singh
  * 
- * This Annotation will be used for injecting bean.
+ * 
  */
 @Target(value = ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
