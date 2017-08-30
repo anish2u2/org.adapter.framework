@@ -1,7 +1,5 @@
 package org.adapter.framework.utility.contracts;
 
-import java.lang.reflect.Method;
-
 import net.sf.cglib.proxy.MethodInterceptor;
 
 /**

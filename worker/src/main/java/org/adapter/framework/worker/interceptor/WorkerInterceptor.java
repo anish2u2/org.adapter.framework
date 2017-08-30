@@ -42,7 +42,7 @@ public class WorkerInterceptor implements Interceptor, InitBean, DestroyBean {
 		boolean isSynchronized = Type.SYNCHRONIZED.equals(work.type());
 		if (preIntercept != null && preIntercept.getClass().isAssignableFrom(PreIntercept.class)
 				&& preIntercept.isInterceptable(method)) {
-			preIntercept.intercept();
+			preIntercept.intercept(obj, method, args, proxy);
 		}
 		if (isNormalWork) {
 			manager.allocateWorker(getWork(isSynchronized, obj, args, proxy));
@@ -51,7 +51,7 @@ public class WorkerInterceptor implements Interceptor, InitBean, DestroyBean {
 		}
 		if (postIntercept != null && postIntercept.getClass().isAssignableFrom(PostIntercept.class)
 				&& postIntercept.isInterceptable(method)) {
-			postIntercept.intercept();
+			postIntercept.intercept(obj, method, args, proxy);
 		}
 		return null;
 	}
