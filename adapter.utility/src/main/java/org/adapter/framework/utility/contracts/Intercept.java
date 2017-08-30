@@ -2,8 +2,6 @@ package org.adapter.framework.utility.contracts;
 
 import java.lang.reflect.Method;
 
-import net.sf.cglib.proxy.MethodProxy;
-
 /**
  * This interface allow you to intercept method invocation.
  * 
@@ -16,7 +14,7 @@ public interface Intercept {
 	 * This method allow you to intercept the method invocation.
 	 * 
 	 */
-	public Object intercept(Object targetObject, Method method, Object[] args, MethodProxy methodProxy);
+	public Object intercept(Object targetObject, Method method, Object[] args, ProxyMethod methodProxy);
 
 	/**
 	 * This will return true if the Intercept object is able to intercept the

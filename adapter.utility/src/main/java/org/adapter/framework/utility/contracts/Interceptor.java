@@ -1,7 +1,5 @@
 package org.adapter.framework.utility.contracts;
 
-import net.sf.cglib.proxy.MethodInterceptor;
-
 /**
  * This Interface will be used for handling method intercept.
  * 
@@ -10,7 +8,7 @@ import net.sf.cglib.proxy.MethodInterceptor;
  * 
  *
  */
-public interface Interceptor extends MethodInterceptor {
+public interface Interceptor extends org.adapter.framework.utility.contracts.MethodInterceptor {
 
 	/**
 	 * Check that the method parameter is interceptable by this interceptor.

@@ -12,8 +12,7 @@ import org.adapter.framework.utility.contracts.Intercept;
 import org.adapter.framework.utility.contracts.Interceptor;
 import org.adapter.framework.utility.contracts.PostIntercept;
 import org.adapter.framework.utility.contracts.PreIntercept;
-
-import net.sf.cglib.proxy.MethodProxy;
+import org.adapter.framework.utility.contracts.ProxyMethod;
 
 public class AbstractsBeanAnnotationInterceptorRegistrar implements Interceptor, InitBean, DestroyBean {
 
@@ -21,7 +20,7 @@ public class AbstractsBeanAnnotationInterceptorRegistrar implements Interceptor,
 
 	private final static String INTERCEPTOR = "INTERCEPTOR";
 
-	public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
+	public Object intercept(Object obj, Method method, Object[] args, ProxyMethod proxy) throws Throwable {
 		if (isInterceptable(method)) {
 			Object result = ((Intercept) ThreadStackUtility.getInstance().getObject(INTERCEPTOR)).intercept(obj, method,
 					args, proxy);
